@@ -4,12 +4,22 @@
 <head>
     <title>Freedom Wall</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="material.min.css">
     <script src="bower_components/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style type="text/css">
-    	.page-content{
-    		padding: 16px;
+    	.form-panel{
+    		position: absolute;
+    		bottom: 0px;
+    		background: white;
+    	}
+    	.card{
+    		background-color: ;
+    		padding:16px;
+    	}
+    	.card, 
+    	textarea{
+    		font-size: 16pt;
     	}
     </style>
 </head>
@@ -21,6 +31,8 @@
 	            mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
+	            <!-- Title -->
+	            <span class="mdl-layout-title">Freedom Wall</span>
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
 	                  mdl-textfield--floating-label mdl-textfield--align-right">
@@ -34,7 +46,7 @@
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
+            <span class="mdl-layout-title">Freedom Wall</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="">Link</a>
                 <a class="mdl-navigation__link" href="">Link</a>
@@ -43,19 +55,29 @@
             </nav>
         </div>
         <main class="mdl-layout__content">
-            <div class="page-content mdl-grid">
+            <div class="page-content">
                 <!-- Your content goes here -->
-                <!-- Floating Multiline Textfield -->
-				<form action="#" class="mdl-cell mdl-cell--12-col">
-				  <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-				    <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
-				    <label class="mdl-textfield__label" for="sample5">Text lines...</label>
-				  </div>
-				</form>
-                <!-- Raised button with ripple -->
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--12-col">
-                    Post
-                </button>
+                <div class="wall mdl-grid">
+                	<div class="card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+                		Hello World!
+                	</div>
+                	<div class="card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+                		Lorem Ipsum
+                	</div>
+                </div>
+                <div class="form-panel mdl-cell mdl-cell--12-col">
+                	<!-- Floating Multiline Textfield -->
+					<form action="#" class="mdl-cell mdl-cell--12-col">
+					  <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+					    <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+					    <label class="mdl-textfield__label" for="sample5">Message</label>
+					  </div>
+					</form>
+	                <!-- Raised button with ripple -->
+	                <button class="mdl-button mdl-button--colored mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--12-col">
+	                    Post
+	                </button>
+                </div>
             </div>
         </main>
     </div>
