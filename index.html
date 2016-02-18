@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="freedom-wall">
 
 <head>
     <title>Freedom Wall</title>
@@ -8,10 +8,13 @@
     <script src="bower_components/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style type="text/css">
+    	.page-content{
+    		padding: 0px;
+    	}
     	.form-panel{
-    		position: absolute;
+    		position: fixed;
     		bottom: 0px;
-    		background: white;
+    		background-color: #EEE;
     	}
     	.card{
     		background-color: ;
@@ -24,7 +27,7 @@
     </style>
 </head>
 
-<body>
+<body ng-controller="PostsController">
     <!-- The drawer is always open in large screens. The header is always shown,
   even in small screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
@@ -40,7 +43,7 @@
                         <i class="material-icons">search</i>
                     </label>
                     <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                        <input ng-model="search" class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
                     </div>
                 </div>
             </div>
@@ -58,29 +61,30 @@
             <div class="page-content">
                 <!-- Your content goes here -->
                 <div class="wall mdl-grid">
-                	<div class="card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
-                		Hello World!
-                	</div>
-                	<div class="card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
-                		Lorem Ipsum
+                	<div ng-repeat="message in messages | filter:search track by $index" class="card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+                		{{message}}
                 	</div>
                 </div>
-                <div class="form-panel mdl-cell mdl-cell--12-col">
+                <div class="form-panel mdl-cell mdl-cell--12-col mdl-shadow--4dp">
                 	<!-- Floating Multiline Textfield -->
 					<form action="#" class="mdl-cell mdl-cell--12-col">
 					  <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-					    <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
-					    <label class="mdl-textfield__label" for="sample5">Message</label>
+					    <textarea ng-model="message" class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+					    <label class="mdl-textfield__label" for="sample5">Message...</label>
 					  </div>
 					</form>
 	                <!-- Raised button with ripple -->
-	                <button class="mdl-button mdl-button--colored mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--12-col">
-	                    Post
+	                <button ng-click="post()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-cell mdl-cell--12-col">
+	                   Post
 	                </button>
                 </div>
             </div>
         </main>
     </div>
+    <!-- Angular Code -->
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 
 </html>
